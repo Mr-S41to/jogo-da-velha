@@ -23,19 +23,19 @@ function App() {
     return (
       <div className='tabuleiro'>
         <div className='tabuleiroLinha'>
-          <div className='casa' data-pos='00' onClick={(e)=>joga(e)}>{j[0][0]}</div>
-          <div className='casa' data-pos='01' onClick={(e)=>joga(e)}>{j[0][1]}</div>
-          <div className='casa' data-pos='02' onClick={(e)=>joga(e)}>{j[0][2]}</div>
+          <div className='casa' data-pos='00' onClick={(e) => joga(e)}>{j[0][0]}</div>
+          <div className='casa' data-pos='01' onClick={(e) => joga(e)}>{j[0][1]}</div>
+          <div className='casa' data-pos='02' onClick={(e) => joga(e)}>{j[0][2]}</div>
         </div>
         <div className='tabuleiroLinha'>
-          <div className='casa' data-pos='10' onClick={(e)=>joga(e)}>{j[1][0]}</div>
-          <div className='casa' data-pos='11' onClick={(e)=>joga(e)}>{j[1][1]}</div>
-          <div className='casa' data-pos='12' onClick={(e)=>joga(e)}>{j[1][2]}</div>
+          <div className='casa' data-pos='10' onClick={(e) => joga(e)}>{j[1][0]}</div>
+          <div className='casa' data-pos='11' onClick={(e) => joga(e)}>{j[1][1]}</div>
+          <div className='casa' data-pos='12' onClick={(e) => joga(e)}>{j[1][2]}</div>
         </div>
         <div className='tabuleiroLinha'>
-          <div className='casa' data-pos='20' onClick={(e)=>joga(e)}>{j[2][0]}</div>
-          <div className='casa' data-pos='21' onClick={(e)=>joga(e)}>{j[2][1]}</div>
-          <div className='casa' data-pos='22' onClick={(e)=>joga(e)}>{j[2][2]}</div>
+          <div className='casa' data-pos='20' onClick={(e) => joga(e)}>{j[2][0]}</div>
+          <div className='casa' data-pos='21' onClick={(e) => joga(e)}>{j[2][1]}</div>
+          <div className='casa' data-pos='22' onClick={(e) => joga(e)}>{j[2][2]}</div>
         </div>
       </div>
     );
@@ -124,14 +124,14 @@ function App() {
   const joga = (e) => {
     if (jogando) {
       if (verificarEspacoVazio(e)) {
-        jogo[retPos(e)[0]] [retPos(e)[1]] = simboloAtual
+        jogo[retPos(e)[0]][retPos(e)[1]] = simboloAtual
         trocarJogador()
         if (verificarVitoria()) {
           trocarJogador()
           alert('Jogador ' + simboloAtual + ' venceu!')
           setJogando(false)
         }
-      } else{
+      } else {
         alert('Espaço indisponivel, selecione outra casa!')
       }
     }
@@ -148,15 +148,21 @@ function App() {
 
 
   return (
-    <div className="container">
-      <h1 className='titulo'>O JOGO DA VELHA</h1>
-      <p className='jogador'>Quem joga: {simboloAtual}</p>
-      <div>
-        {tabuleiro(jogo)}
+    <div>
+      <div className="container">
+        <h1 className='titulo'>O JOGO DA VELHA</h1>
+        <p className='jogador'>Quem joga: {simboloAtual}</p>
+        <div>
+          {tabuleiro(jogo)}
+        </div>
+        <div>
+          {BtnJogarNovamente()}
+        </div>
       </div>
-      <div>
-        {BtnJogarNovamente()}
-      </div>
+      <p>Curso de Engenharia de Software - UniEVANGÉLICA</p>
+      <p>Disciplina de Programação Web</p>
+      <p>Dev: Matheus N. Saito</p>
+      <p>Data: Março de 2023</p>
     </div>
   );
 
